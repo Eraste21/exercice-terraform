@@ -74,5 +74,21 @@ services:
       - order-service
     restart: unless-stopped
 
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - default
+      - monitoring_net
+    restart: unless-stopped
+
 volumes:
   postgres_data:
+
+networks:
+  monitoring_net:
+    external: true
