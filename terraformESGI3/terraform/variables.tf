@@ -80,3 +80,12 @@ variable "services_image_tag" {
   type        = string
   default     = "latest"
 }
+
+variable "restart_policy" {
+  description = "Politique de redémarrage des conteneurs"
+  type        = string
+  validation {
+    condition     = contains(["always", "unless-stopped", "on-failure"], var.restart_policy)
+    error_message = "La restart_policy doit être 'always', 'unless-stopped' ou 'on-failure'."
+  }
+}

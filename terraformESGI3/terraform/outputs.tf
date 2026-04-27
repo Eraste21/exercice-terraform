@@ -42,3 +42,7 @@ output "container_ids" {
     frontend        = docker_container.frontend.id
   }
 }
+
+output "services_ports" {
+  value = local.all_service_ports
+}

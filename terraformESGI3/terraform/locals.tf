@@ -19,4 +19,11 @@ locals {
     product = { port = 3002, host_port = var.product_service_port }
     order   = { port = 3003, host_port = var.order_service_port }
   }
+
+  all_service_ports = {
+    user_service    = 3001
+    product_service = 3002
+    order_service   = 3003
+    frontend        = 8080
+  }
 }
